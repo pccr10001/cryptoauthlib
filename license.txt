@@ -1,0 +1,1 @@
+Please view original repository -> https://github.com/MicrochipTech/cryptoauthlib/blob/master/license.txt
