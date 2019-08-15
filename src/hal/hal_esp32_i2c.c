@@ -14,13 +14,17 @@
  */
 
 #include "../atca_iface.h"
+
+#include <stdio.h>
+#include <string.h>
+#include "../cryptoauthlib.h"
+
+#ifdef ATCA_HAL_ESP32
+
 #include "atca_hal.h"
 #include "esp_err.h"
 #include "esp_log.h"
 #include <driver/i2c.h>
-#include <stdio.h>
-#include <string.h>
-#include "../cryptoauthlib.h"
 
 #define ACK_CHECK_EN 0x1  /*!< I2C master will check ack from slave*/
 #define ACK_CHECK_DIS 0x0 /*!< I2C master will not check ack from slave */
@@ -277,3 +281,5 @@ ATCA_STATUS hal_i2c_discover_devices(int bus_num, ATCAIfaceCfg *cfg,
   //    ESP_LOGI(TAG, "hal_i2c_discover_devices");
   return ATCA_UNIMPLEMENTED;
 }
+
+#endif

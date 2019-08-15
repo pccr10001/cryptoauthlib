@@ -27,6 +27,8 @@
 
 /* mbedTLS boilerplate includes */
 
+#ifdef USE_MBEDTLS
+
 #if !defined(MBEDTLS_CONFIG_FILE)
 #include "mbedtls/config.h"
 #else
@@ -143,3 +145,5 @@ int mbedtls_ecdsa_verify(mbedtls_ecp_group *grp,
 #endif /* !MBEDTLS_ECDSA_VERIFY_ALT */
 
 #endif /* MBEDTLS_ECDSA_C */
+
+#endif

@@ -28,6 +28,8 @@
 
 /* mbedTLS boilerplate includes */
 
+#ifdef MBEDTLS
+
 #if !defined(MBEDTLS_CONFIG_FILE)
 #include "mbedtls/config.h"
 #else
@@ -204,3 +206,4 @@ int atca_mbedtls_cert_add(mbedtls_x509_crt * cert, const atcacert_def_t * cert_d
     return ret;
 }
 
+#endif

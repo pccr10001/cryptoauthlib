@@ -40,10 +40,16 @@
 #include "basic/atca_helpers.h"
 
 #define ATCA_HAL_I2C
+
 #define ATCAPRINTF
 
+// #define ATCA_HAL_ESP32
+
+#ifdef ATCA_HAL_ESP32
+#define USE_MBEDTLS
 #define SDA_PIN 25
 #define SCL_PIN 26
+#endif
 
 #ifdef ATCAPRINTF
     #include <stdio.h>

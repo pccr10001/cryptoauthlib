@@ -25,6 +25,8 @@
  * THIS SOFTWARE.
  */
 
+#ifdef USE_MBEDTLS
+
 #ifndef _ATCA_MBEDTLS_WRAP_H_
 #define _ATCA_MBEDTLS_WRAP_H_
 
@@ -68,3 +70,5 @@ int atca_mbedtls_ecdh_ioprot_cb(uint8_t secret[32]);
 /** @} */
 
 #endif /* _ATCA_MBEDTLS_WRAP_H_ */
+
+#endif

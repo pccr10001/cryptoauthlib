@@ -38,10 +38,11 @@
 /* if the number of these configurations grows large, we can #ifdef them based on required device support */
 
 /** \brief default configuration for an ECCx08A device */
+#ifdef ATCA_HAL_ESP32
 ATCAIfaceCfg cfg_ateccx08a_i2c_esp32 = {
     .iface_type             = ATCA_I2C_IFACE,
     .devtype                = ATECC508A,
-    .atcai2c.slave_address  = 0x60,
+    .atcai2c.slave_address  = 0xC0,
     .atcai2c.bus            = 0,
     .atcai2c.baud           = 100000,
     //.atcai2c.baud = 100000,
@@ -50,5 +51,19 @@ ATCAIfaceCfg cfg_ateccx08a_i2c_esp32 = {
     .sda_pin                = SDA_PIN,
     .scl_pin                = SCL_PIN
 };
+#else
+ATCAIfaceCfg cfg_ateccx08a_i2c_arduino = {
+    .iface_type             = ATCA_I2C_IFACE,
+    .devtype                = ATECC508A,
+    .atcai2c.slave_address  = 0x60,  // Arduino uses 7-bit address
+    .atcai2c.bus            = 0,
+    .atcai2c.baud           = 100000,
+    //.atcai2c.baud = 100000,
+    .wake_delay             = 200,
+    .rx_retries             = 20,
+    .sda_pin                = 0,
+    .scl_pin                = 0
+};
+#endif
 
 /** @} */

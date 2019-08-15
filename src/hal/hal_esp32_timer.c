@@ -14,6 +14,8 @@
  */
 
 #include "atca_hal.h"
+
+#ifdef ATCA_HAL_ESP32
 #include "freertos/FreeRTOS.h"
 #include "freertos/task.h"
 
@@ -27,3 +29,4 @@ void atca_delay_ms(uint32_t msec)
 {
     ets_delay_us(msec * 1000);
 }
+#endif

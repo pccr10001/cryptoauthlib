@@ -27,6 +27,8 @@
 
 #include "atca_hal.h"
 
+#ifdef ATCA_HAL_ESP32
+
 #include "freertos/FreeRTOS.h"
 #include "freertos/semphr.h"
 #include "freertos/task.h"
@@ -130,6 +132,6 @@ ATCA_STATUS hal_unlock_mutex(void * pMutex)
         return ATCA_SUCCESS;
     }
 }
-
+#endif
 
 /** @} */

@@ -21,6 +21,8 @@
 #include "../cryptoauthlib.h"
 #include "atca_hal.h"
 
+#ifndef ATCA_HAL_ESP32
+
 void atca_delay_ms(uint32_t ms) { delay(ms); }
 
 void hal_i2c_change_baud(ATCAIface iface, uint32_t speed) {
@@ -128,3 +130,5 @@ ATCA_STATUS hal_i2c_discover_devices(int bus_num, ATCAIfaceCfg *cfg,
                                      int *found) {
   return ATCA_UNIMPLEMENTED;
 }
+
+#endif

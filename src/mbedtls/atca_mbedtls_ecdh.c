@@ -26,6 +26,7 @@
  */
 
 /* mbedTLS boilerplate includes */
+#ifdef USE_MBEDTLS
 
 #if !defined(MBEDTLS_CONFIG_FILE)
 #include "mbedtls/config.h"
@@ -165,3 +166,5 @@ int mbedtls_ecdh_compute_shared(mbedtls_ecp_group *grp, mbedtls_mpi *z,
 #endif /* MBEDTLS_ECDH_COMPUTE_SHARED_ALT */
 
 #endif /* MBEDTLS_ECDH_C */
+
+#endif
